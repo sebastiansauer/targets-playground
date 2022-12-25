@@ -1,12 +1,6 @@
 
 # recipe1 -----------------------------------------------------------------
 
-
-
-
-
-
-
 def_recipe <- function(data_train) {
   
   config <- config::get()
@@ -37,6 +31,8 @@ def_recipe <- function(data_train) {
 
 def_recipe2 <- function(data_train) {
   
+  # count most frequent tokens plus some text features including sentiment and profane words
+  
   data("schimpwoerter", package = "pradadata")
   data("sentiws", package = "pradadata")
   data("wild_emojis", package = "pradadata")
@@ -47,7 +43,7 @@ def_recipe2 <- function(data_train) {
   
   d_reduced <- data_train %>% select(text, c1, id)
   
-  recipe_def <-
+  recipe_def <- 
     recipe(c1 ~ ., data = d_reduced) %>%
     update_role(id, new_role = "id") %>%
     step_text_normalization(text) %>%
