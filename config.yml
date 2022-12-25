@@ -1,0 +1,21 @@
+default:
+  n_tokens: 10
+  n: 100
+  n_grid_values: 2
+  n_vfold: 2
+  tinyfy: true
+
+dev:
+  n_tokens: 10
+  n: 100
+  n_grid_values: 2 
+  n_vfold: 2
+  tinyfy: true
+  
+production:
+  n_tokens: 1e3
+  n: Inf
+  n_grid_values: 20 
+  n_vfold: 2
+  tinyfy: true  
+
